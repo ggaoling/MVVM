@@ -7,7 +7,7 @@
     <body>
         <script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
         <script>
-            // import san,{DataTypes} from 'https://unpkg.com/san@latest/dist/san.dev.js';
+            import san,{DataTypes} from './san';
             var myApp=san.defineComponent({
                 template:`
                 <div>
@@ -17,23 +17,22 @@
             <input type="text" value="{=intro=}" placeholder="简介（string）">
             
             <br><label>信息：</label>
-            <button type="reset" onclick="reset">移除信息</button><br>
+            <button type="reset">移除信息</button><br>
             </form>
-            <p>姓名:__<ui-label style="text-decoration:underline">{{name}}</ui-label>__</p>
-            <p>年龄:__<label style="text-decoration:underline">{{age}}</label>__</p>
-            <p>简介:__<label style="text-decoration:underline">{{intro}}</label>__</p>
+            <p>姓名:__<span style="text-decoration:underline">{{name}}</span>__</p>
+            <p>年龄:__<span style="text-decoration:underline">{{age}}</span>__</p>
+            <p>简介:__<span style="text-decoration:underline">{{intro}}</span>__</p>
         </div>
                 `,
-            // dataTypes: { name:DataTypes.string,
-            //          age:DataTypes.number,
-            //          intro:DataTypes.string
-            //           },
-
-            reset:function(){
-                this.data.set("name",'');
-                this.data.set("age",'');
-                this.data.set("intro",'')
-            }
+                initData:function(){
+                    name,
+                    age,
+                    intro
+                },
+            dataTypes: { name:DataTypes.string,
+                     age:DataTypes.number,
+                     intro:DataTypes.string
+                      },
             });
 
             var MyApp=new myApp();
