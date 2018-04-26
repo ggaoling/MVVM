@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>task2-1</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+        <script>
+            // import san,{DataTypes} from 'https://unpkg.com/san@latest/dist/san.dev.js';
+            var myApp=san.defineComponent({
+                template:`
+                <div>
+                <form>
+            <input type="text" value="{=name=}" placeholder="姓名（string）">
+            <input type="text" value="{=age=}" placeholder="年龄（number）">
+            <input type="text" value="{=intro=}" placeholder="简介（string）">
+            
+            <br><label>信息：</label>
+            <button type="reset" onclick="reset">移除信息</button><br>
+            </form>
+            <p>姓名:__<ui-label style="text-decoration:underline">{{name}}</ui-label>__</p>
+            <p>年龄:__<label style="text-decoration:underline">{{age}}</label>__</p>
+            <p>简介:__<label style="text-decoration:underline">{{intro}}</label>__</p>
+        </div>
+                `,
+            // dataTypes: { name:DataTypes.string,
+            //          age:DataTypes.number,
+            //          intro:DataTypes.string
+            //           },
+
+            reset:function(){
+                this.data.set("name",'');
+                this.data.set("age",'');
+                this.data.set("intro",'')
+            }
+            });
+
+            var MyApp=new myApp();
+            MyApp.attach(document.body);
+        </script>
+    </body>
+</html>
